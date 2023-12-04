@@ -1,7 +1,7 @@
 
 // Settings:
 bool useKalmanFilter = true;        // Variable to control whether to use the Kalman filter
-const int cmORin = 1;               // 0 for inches, 1 for cm
+const int inORcm = 1;               // 0 for inches, 1 for cm
 const int num_sensors = 3;
 const int num_leds = 4;
 

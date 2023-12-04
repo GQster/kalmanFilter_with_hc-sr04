@@ -68,7 +68,7 @@ double usonic_transmit(int trig, int echo) {
   double duration = pulseIn(echo, HIGH);
 
   double distance = 0;
-  if (cmORin == 0)
+  if (inORcm == 0)
     distance = (duration/2)/73.9;  // Convert to inches
   else
     distance = (duration/2)/29.1;   // Convert to cm
@@ -120,7 +120,7 @@ void loop() {
       double dis = usonic_transmit(ultrasonic[i][0], ultrasonic[i][1]);
 
       // Check if the distance is within an acceptable range (adjust as needed)
-      if (dis >= min_distance[cmORin] && dis <= max_distance[cmORin]) {
+      if (dis >= min_distance[inORcm] && dis <= max_distance[inORcm]) {
         
         // Check if using kalman filter
         if (useKalmanFilter) {
@@ -156,7 +156,7 @@ void loop() {
     else
       Serial.print("Aggregate distance (3avg) ");
     
-    Serial.print(units[cmORin]);
+    Serial.print(units[inORcm]);
     Serial.print(": ");
     Serial.print(aggregateD);
     Serial.print("    elapsedTime (ms): ");
@@ -178,7 +178,7 @@ void loop() {
     }
 
     // Move the servo depending on the distance
-    moveServo(aggregateD, min_distance[cmORin], 80, 0, 70);       // This is just for visualisation really
+    moveServo(aggregateD, min_distance[inORcm], 80, 0, 70);       // This is just for visualisation really
 
     delay(100);   // make sure the servo has moved
     elapsedTime = millis() - startTime;
