@@ -17,6 +17,7 @@ This code uses:
     3 HC-SR04 ultrasonic (US) distance sensors  
     4 LEDs
     1 DF9GMS servo motor.
+![avgMeasurment Version](kalmanFilter_hc-sr04_ESP32_arduinoFramework/lib/hardwareUsed.jpg)
 
 The HC-SR04 has range of 2-400 cm and a baud rate of 9600.
 
